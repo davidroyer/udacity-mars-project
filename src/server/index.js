@@ -1,10 +1,8 @@
-const { BASE_API } = require("../config/index.js");
 require("dotenv").config();
-
+const { BASE_API } = require("../../config/index.js");
 const express = require("express");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
-
 const app = express();
 const port = 3000;
 
@@ -19,8 +17,9 @@ app.get("/rovers", async (req, res) => {
   );
   const jsonData = await data.json();
 
-  // res.json(jsonData);
   res.send(jsonData);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+console.log("NEW DIR STRUCTURE WORKS!");

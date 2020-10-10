@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/core-js/library/modules/_global.js":[function(require,module,exports) {
+})({"../../node_modules/core-js/library/modules/_global.js":[function(require,module,exports) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
@@ -126,17 +126,17 @@ var global = module.exports = typeof window != 'undefined' && window.Math == Mat
   : Function('return this')();
 if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
-},{}],"../node_modules/core-js/library/modules/_core.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_core.js":[function(require,module,exports) {
 var core = module.exports = { version: '2.6.11' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
-},{}],"../node_modules/core-js/library/modules/_a-function.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_a-function.js":[function(require,module,exports) {
 module.exports = function (it) {
   if (typeof it != 'function') throw TypeError(it + ' is not a function!');
   return it;
 };
 
-},{}],"../node_modules/core-js/library/modules/_ctx.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_ctx.js":[function(require,module,exports) {
 // optional / simple context binding
 var aFunction = require('./_a-function');
 module.exports = function (fn, that, length) {
@@ -158,19 +158,19 @@ module.exports = function (fn, that, length) {
   };
 };
 
-},{"./_a-function":"../node_modules/core-js/library/modules/_a-function.js"}],"../node_modules/core-js/library/modules/_is-object.js":[function(require,module,exports) {
+},{"./_a-function":"../../node_modules/core-js/library/modules/_a-function.js"}],"../../node_modules/core-js/library/modules/_is-object.js":[function(require,module,exports) {
 module.exports = function (it) {
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
 
-},{}],"../node_modules/core-js/library/modules/_an-object.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_an-object.js":[function(require,module,exports) {
 var isObject = require('./_is-object');
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
 };
 
-},{"./_is-object":"../node_modules/core-js/library/modules/_is-object.js"}],"../node_modules/core-js/library/modules/_fails.js":[function(require,module,exports) {
+},{"./_is-object":"../../node_modules/core-js/library/modules/_is-object.js"}],"../../node_modules/core-js/library/modules/_fails.js":[function(require,module,exports) {
 module.exports = function (exec) {
   try {
     return !!exec();
@@ -179,13 +179,13 @@ module.exports = function (exec) {
   }
 };
 
-},{}],"../node_modules/core-js/library/modules/_descriptors.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_descriptors.js":[function(require,module,exports) {
 // Thank's IE8 for his funny defineProperty
 module.exports = !require('./_fails')(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
-},{"./_fails":"../node_modules/core-js/library/modules/_fails.js"}],"../node_modules/core-js/library/modules/_dom-create.js":[function(require,module,exports) {
+},{"./_fails":"../../node_modules/core-js/library/modules/_fails.js"}],"../../node_modules/core-js/library/modules/_dom-create.js":[function(require,module,exports) {
 var isObject = require('./_is-object');
 var document = require('./_global').document;
 // typeof document.createElement is 'object' in old IE
@@ -194,12 +194,12 @@ module.exports = function (it) {
   return is ? document.createElement(it) : {};
 };
 
-},{"./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_ie8-dom-define.js":[function(require,module,exports) {
+},{"./_is-object":"../../node_modules/core-js/library/modules/_is-object.js","./_global":"../../node_modules/core-js/library/modules/_global.js"}],"../../node_modules/core-js/library/modules/_ie8-dom-define.js":[function(require,module,exports) {
 module.exports = !require('./_descriptors') && !require('./_fails')(function () {
   return Object.defineProperty(require('./_dom-create')('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
-},{"./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_fails":"../node_modules/core-js/library/modules/_fails.js","./_dom-create":"../node_modules/core-js/library/modules/_dom-create.js"}],"../node_modules/core-js/library/modules/_to-primitive.js":[function(require,module,exports) {
+},{"./_descriptors":"../../node_modules/core-js/library/modules/_descriptors.js","./_fails":"../../node_modules/core-js/library/modules/_fails.js","./_dom-create":"../../node_modules/core-js/library/modules/_dom-create.js"}],"../../node_modules/core-js/library/modules/_to-primitive.js":[function(require,module,exports) {
 // 7.1.1 ToPrimitive(input [, PreferredType])
 var isObject = require('./_is-object');
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
@@ -213,7 +213,7 @@ module.exports = function (it, S) {
   throw TypeError("Can't convert object to primitive value");
 };
 
-},{"./_is-object":"../node_modules/core-js/library/modules/_is-object.js"}],"../node_modules/core-js/library/modules/_object-dp.js":[function(require,module,exports) {
+},{"./_is-object":"../../node_modules/core-js/library/modules/_is-object.js"}],"../../node_modules/core-js/library/modules/_object-dp.js":[function(require,module,exports) {
 var anObject = require('./_an-object');
 var IE8_DOM_DEFINE = require('./_ie8-dom-define');
 var toPrimitive = require('./_to-primitive');
@@ -231,7 +231,7 @@ exports.f = require('./_descriptors') ? Object.defineProperty : function defineP
   return O;
 };
 
-},{"./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_ie8-dom-define":"../node_modules/core-js/library/modules/_ie8-dom-define.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/_property-desc.js":[function(require,module,exports) {
+},{"./_an-object":"../../node_modules/core-js/library/modules/_an-object.js","./_ie8-dom-define":"../../node_modules/core-js/library/modules/_ie8-dom-define.js","./_to-primitive":"../../node_modules/core-js/library/modules/_to-primitive.js","./_descriptors":"../../node_modules/core-js/library/modules/_descriptors.js"}],"../../node_modules/core-js/library/modules/_property-desc.js":[function(require,module,exports) {
 module.exports = function (bitmap, value) {
   return {
     enumerable: !(bitmap & 1),
@@ -241,7 +241,7 @@ module.exports = function (bitmap, value) {
   };
 };
 
-},{}],"../node_modules/core-js/library/modules/_hide.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_hide.js":[function(require,module,exports) {
 var dP = require('./_object-dp');
 var createDesc = require('./_property-desc');
 module.exports = require('./_descriptors') ? function (object, key, value) {
@@ -251,13 +251,13 @@ module.exports = require('./_descriptors') ? function (object, key, value) {
   return object;
 };
 
-},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/_has.js":[function(require,module,exports) {
+},{"./_object-dp":"../../node_modules/core-js/library/modules/_object-dp.js","./_property-desc":"../../node_modules/core-js/library/modules/_property-desc.js","./_descriptors":"../../node_modules/core-js/library/modules/_descriptors.js"}],"../../node_modules/core-js/library/modules/_has.js":[function(require,module,exports) {
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function (it, key) {
   return hasOwnProperty.call(it, key);
 };
 
-},{}],"../node_modules/core-js/library/modules/_export.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_export.js":[function(require,module,exports) {
 
 var global = require('./_global');
 var core = require('./_core');
@@ -322,14 +322,14 @@ $export.U = 64;  // safe
 $export.R = 128; // real proto method for `library`
 module.exports = $export;
 
-},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_core":"../node_modules/core-js/library/modules/_core.js","./_ctx":"../node_modules/core-js/library/modules/_ctx.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_has":"../node_modules/core-js/library/modules/_has.js"}],"../node_modules/core-js/library/modules/_cof.js":[function(require,module,exports) {
+},{"./_global":"../../node_modules/core-js/library/modules/_global.js","./_core":"../../node_modules/core-js/library/modules/_core.js","./_ctx":"../../node_modules/core-js/library/modules/_ctx.js","./_hide":"../../node_modules/core-js/library/modules/_hide.js","./_has":"../../node_modules/core-js/library/modules/_has.js"}],"../../node_modules/core-js/library/modules/_cof.js":[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = function (it) {
   return toString.call(it).slice(8, -1);
 };
 
-},{}],"../node_modules/core-js/library/modules/_iobject.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_iobject.js":[function(require,module,exports) {
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = require('./_cof');
 // eslint-disable-next-line no-prototype-builtins
@@ -337,14 +337,14 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
 
-},{"./_cof":"../node_modules/core-js/library/modules/_cof.js"}],"../node_modules/core-js/library/modules/_defined.js":[function(require,module,exports) {
+},{"./_cof":"../../node_modules/core-js/library/modules/_cof.js"}],"../../node_modules/core-js/library/modules/_defined.js":[function(require,module,exports) {
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function (it) {
   if (it == undefined) throw TypeError("Can't call method on  " + it);
   return it;
 };
 
-},{}],"../node_modules/core-js/library/modules/_to-iobject.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_to-iobject.js":[function(require,module,exports) {
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = require('./_iobject');
 var defined = require('./_defined');
@@ -352,7 +352,7 @@ module.exports = function (it) {
   return IObject(defined(it));
 };
 
-},{"./_iobject":"../node_modules/core-js/library/modules/_iobject.js","./_defined":"../node_modules/core-js/library/modules/_defined.js"}],"../node_modules/core-js/library/modules/_to-integer.js":[function(require,module,exports) {
+},{"./_iobject":"../../node_modules/core-js/library/modules/_iobject.js","./_defined":"../../node_modules/core-js/library/modules/_defined.js"}],"../../node_modules/core-js/library/modules/_to-integer.js":[function(require,module,exports) {
 // 7.1.4 ToInteger
 var ceil = Math.ceil;
 var floor = Math.floor;
@@ -360,7 +360,7 @@ module.exports = function (it) {
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
 };
 
-},{}],"../node_modules/core-js/library/modules/_to-length.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_to-length.js":[function(require,module,exports) {
 // 7.1.15 ToLength
 var toInteger = require('./_to-integer');
 var min = Math.min;
@@ -368,7 +368,7 @@ module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
 
-},{"./_to-integer":"../node_modules/core-js/library/modules/_to-integer.js"}],"../node_modules/core-js/library/modules/_to-absolute-index.js":[function(require,module,exports) {
+},{"./_to-integer":"../../node_modules/core-js/library/modules/_to-integer.js"}],"../../node_modules/core-js/library/modules/_to-absolute-index.js":[function(require,module,exports) {
 var toInteger = require('./_to-integer');
 var max = Math.max;
 var min = Math.min;
@@ -377,7 +377,7 @@ module.exports = function (index, length) {
   return index < 0 ? max(index + length, 0) : min(index, length);
 };
 
-},{"./_to-integer":"../node_modules/core-js/library/modules/_to-integer.js"}],"../node_modules/core-js/library/modules/_array-includes.js":[function(require,module,exports) {
+},{"./_to-integer":"../../node_modules/core-js/library/modules/_to-integer.js"}],"../../node_modules/core-js/library/modules/_array-includes.js":[function(require,module,exports) {
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = require('./_to-iobject');
@@ -402,10 +402,10 @@ module.exports = function (IS_INCLUDES) {
   };
 };
 
-},{"./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-length":"../node_modules/core-js/library/modules/_to-length.js","./_to-absolute-index":"../node_modules/core-js/library/modules/_to-absolute-index.js"}],"../node_modules/core-js/library/modules/_library.js":[function(require,module,exports) {
+},{"./_to-iobject":"../../node_modules/core-js/library/modules/_to-iobject.js","./_to-length":"../../node_modules/core-js/library/modules/_to-length.js","./_to-absolute-index":"../../node_modules/core-js/library/modules/_to-absolute-index.js"}],"../../node_modules/core-js/library/modules/_library.js":[function(require,module,exports) {
 module.exports = true;
 
-},{}],"../node_modules/core-js/library/modules/_shared.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_shared.js":[function(require,module,exports) {
 
 var core = require('./_core');
 var global = require('./_global');
@@ -420,21 +420,21 @@ var store = global[SHARED] || (global[SHARED] = {});
   copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 });
 
-},{"./_core":"../node_modules/core-js/library/modules/_core.js","./_global":"../node_modules/core-js/library/modules/_global.js","./_library":"../node_modules/core-js/library/modules/_library.js"}],"../node_modules/core-js/library/modules/_uid.js":[function(require,module,exports) {
+},{"./_core":"../../node_modules/core-js/library/modules/_core.js","./_global":"../../node_modules/core-js/library/modules/_global.js","./_library":"../../node_modules/core-js/library/modules/_library.js"}],"../../node_modules/core-js/library/modules/_uid.js":[function(require,module,exports) {
 var id = 0;
 var px = Math.random();
 module.exports = function (key) {
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
 };
 
-},{}],"../node_modules/core-js/library/modules/_shared-key.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_shared-key.js":[function(require,module,exports) {
 var shared = require('./_shared')('keys');
 var uid = require('./_uid');
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
 
-},{"./_shared":"../node_modules/core-js/library/modules/_shared.js","./_uid":"../node_modules/core-js/library/modules/_uid.js"}],"../node_modules/core-js/library/modules/_object-keys-internal.js":[function(require,module,exports) {
+},{"./_shared":"../../node_modules/core-js/library/modules/_shared.js","./_uid":"../../node_modules/core-js/library/modules/_uid.js"}],"../../node_modules/core-js/library/modules/_object-keys-internal.js":[function(require,module,exports) {
 var has = require('./_has');
 var toIObject = require('./_to-iobject');
 var arrayIndexOf = require('./_array-includes')(false);
@@ -453,13 +453,13 @@ module.exports = function (object, names) {
   return result;
 };
 
-},{"./_has":"../node_modules/core-js/library/modules/_has.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_array-includes":"../node_modules/core-js/library/modules/_array-includes.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js"}],"../node_modules/core-js/library/modules/_enum-bug-keys.js":[function(require,module,exports) {
+},{"./_has":"../../node_modules/core-js/library/modules/_has.js","./_to-iobject":"../../node_modules/core-js/library/modules/_to-iobject.js","./_array-includes":"../../node_modules/core-js/library/modules/_array-includes.js","./_shared-key":"../../node_modules/core-js/library/modules/_shared-key.js"}],"../../node_modules/core-js/library/modules/_enum-bug-keys.js":[function(require,module,exports) {
 // IE 8- don't enum bug keys
 module.exports = (
   'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
 ).split(',');
 
-},{}],"../node_modules/core-js/library/modules/_object-keys.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_object-keys.js":[function(require,module,exports) {
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys = require('./_object-keys-internal');
 var enumBugKeys = require('./_enum-bug-keys');
@@ -468,20 +468,20 @@ module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
 };
 
-},{"./_object-keys-internal":"../node_modules/core-js/library/modules/_object-keys-internal.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js"}],"../node_modules/core-js/library/modules/_object-gops.js":[function(require,module,exports) {
+},{"./_object-keys-internal":"../../node_modules/core-js/library/modules/_object-keys-internal.js","./_enum-bug-keys":"../../node_modules/core-js/library/modules/_enum-bug-keys.js"}],"../../node_modules/core-js/library/modules/_object-gops.js":[function(require,module,exports) {
 exports.f = Object.getOwnPropertySymbols;
 
-},{}],"../node_modules/core-js/library/modules/_object-pie.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_object-pie.js":[function(require,module,exports) {
 exports.f = {}.propertyIsEnumerable;
 
-},{}],"../node_modules/core-js/library/modules/_to-object.js":[function(require,module,exports) {
+},{}],"../../node_modules/core-js/library/modules/_to-object.js":[function(require,module,exports) {
 // 7.1.13 ToObject(argument)
 var defined = require('./_defined');
 module.exports = function (it) {
   return Object(defined(it));
 };
 
-},{"./_defined":"../node_modules/core-js/library/modules/_defined.js"}],"../node_modules/core-js/library/modules/_object-assign.js":[function(require,module,exports) {
+},{"./_defined":"../../node_modules/core-js/library/modules/_defined.js"}],"../../node_modules/core-js/library/modules/_object-assign.js":[function(require,module,exports) {
 'use strict';
 // 19.1.2.1 Object.assign(target, source, ...)
 var DESCRIPTORS = require('./_descriptors');
@@ -521,24 +521,28 @@ module.exports = !$assign || require('./_fails')(function () {
   } return T;
 } : $assign;
 
-},{"./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_iobject":"../node_modules/core-js/library/modules/_iobject.js","./_fails":"../node_modules/core-js/library/modules/_fails.js"}],"../node_modules/core-js/library/modules/es6.object.assign.js":[function(require,module,exports) {
+},{"./_descriptors":"../../node_modules/core-js/library/modules/_descriptors.js","./_object-keys":"../../node_modules/core-js/library/modules/_object-keys.js","./_object-gops":"../../node_modules/core-js/library/modules/_object-gops.js","./_object-pie":"../../node_modules/core-js/library/modules/_object-pie.js","./_to-object":"../../node_modules/core-js/library/modules/_to-object.js","./_iobject":"../../node_modules/core-js/library/modules/_iobject.js","./_fails":"../../node_modules/core-js/library/modules/_fails.js"}],"../../node_modules/core-js/library/modules/es6.object.assign.js":[function(require,module,exports) {
 // 19.1.3.1 Object.assign(target, source)
 var $export = require('./_export');
 
 $export($export.S + $export.F, 'Object', { assign: require('./_object-assign') });
 
-},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_object-assign":"../node_modules/core-js/library/modules/_object-assign.js"}],"../node_modules/core-js/library/fn/object/assign.js":[function(require,module,exports) {
+},{"./_export":"../../node_modules/core-js/library/modules/_export.js","./_object-assign":"../../node_modules/core-js/library/modules/_object-assign.js"}],"../../node_modules/core-js/library/fn/object/assign.js":[function(require,module,exports) {
 require('../../modules/es6.object.assign');
 module.exports = require('../../modules/_core').Object.assign;
 
-},{"../../modules/es6.object.assign":"../node_modules/core-js/library/modules/es6.object.assign.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/@babel/runtime-corejs2/core-js/object/assign.js":[function(require,module,exports) {
+},{"../../modules/es6.object.assign":"../../node_modules/core-js/library/modules/es6.object.assign.js","../../modules/_core":"../../node_modules/core-js/library/modules/_core.js"}],"../../node_modules/@babel/runtime-corejs2/core-js/object/assign.js":[function(require,module,exports) {
 module.exports = require("core-js/library/fn/object/assign");
-},{"core-js/library/fn/object/assign":"../node_modules/core-js/library/fn/object/assign.js"}],"app.js":[function(require,module,exports) {
+},{"core-js/library/fn/object/assign":"../../node_modules/core-js/library/fn/object/assign.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 var _assign = _interopRequireDefault(require("@babel/runtime-corejs2/core-js/object/assign"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+if (module.hot) {
+  module.hot.accept();
+}
 
 const root = document.getElementById("root");
 let store = {
@@ -585,10 +589,7 @@ const getRoverData = async roverName => {
     activeRover: latest_photos
   });
 };
-
-console.log("outside");
-console.log("outside2");
-},{"@babel/runtime-corejs2/core-js/object/assign":"../node_modules/@babel/runtime-corejs2/core-js/object/assign.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@babel/runtime-corejs2/core-js/object/assign":"../../node_modules/@babel/runtime-corejs2/core-js/object/assign.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -616,7 +617,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59167" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53093" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -792,5 +793,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
+},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
 //# sourceMappingURL=/app.c328ef1a.js.map

@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently --kill-others yarn:dev:*",
-    "devtest": "concurrently --kill-others \"yarn dev:server\" \"yarn dev:client\"",
-    "dev:client": "parcel watch ./client/index.html",
-    "dev:server": "nodemon server/index.js",
+    "dev:client": "parcel watch src/client/index.html",
+    "dev:server": "nodemon src/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
