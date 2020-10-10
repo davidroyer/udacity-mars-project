@@ -540,115 +540,54 @@ var _assign = _interopRequireDefault(require("@babel/runtime-corejs2/core-js/obj
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-let store = {
-  user: {
-    name: "Student"
-  },
-  apod: "",
-  rovers: ["Curiosity", "Opportunity", "Spirit"]
-}; // add our markup to the page
-
 const root = document.getElementById("root");
+let store = {
+  rovers: ["Curiosity", "Opportunity", "Spirit"]
+};
 
 const updateStore = (store, newState) => {
   store = (0, _assign.default)(store, newState);
   render(root, store);
 };
 
-const render = async (root, state) => {
+const render = (root, state) => {
+  console.log("render -> state", state);
   root.innerHTML = App(state);
-}; // create content
+}; // eslint-disable-next-line no-unused-vars
 
 
 const App = state => {
-  // eslint-disable-next-line no-unused-vars
   let {
-    rovers,
-    apod
+    activeRover
   } = state;
+  const {
+    rover
+  } = activeRover[0];
   return `
-        <header></header>
-        <main>
-            ${Greeting(store.user.name)}
-            <section>
-                <h3>Put things on the page!</h3>
-                <p>Here is an example section.</p>
-                <p>
-                    One of the most popular websites at NASA is the Astronomy Picture of the Day. In fact, this website is one of
-                    the most popular websites across all federal agencies. It has the popular appeal of a Justin Bieber video.
-                    This endpoint structures the APOD imagery and associated metadata so that it can be repurposed for other
-                    applications. In addition, if the concept_tags parameter is set to True, then keywords derived from the image
-                    explanation are returned. These keywords could be used as auto-generated hashtags for twitter or instagram feeds;
-                    but generally help with discoverability of relevant imagery.
-                </p>
-                ${ImageOfTheDay(apod)}
-            </section>
-        </main>
-        <footer></footer>
+      <h2>${rover.name}</h2>
     `;
 }; // listening for load event because page should load before any JS is called
 
 
-window.addEventListener("load", () => {
-  render(root, store);
-}); // ------------------------------------------------------  COMPONENTS
-// Pure function that renders conditional information -- THIS IS JUST AN EXAMPLE, you can delete it.
+window.addEventListener("load", () => {// render(root, store);
+});
+const roverOptions = document.querySelectorAll(".rover");
+roverOptions.forEach(rover => rover.addEventListener("click", function () {
+  getRoverData(this.id);
+}));
 
-const Greeting = name => {
-  if (name) {
-    return `
-            <h1>Welcome, ${name}!</h1>
-        `;
-  }
-
-  return `
-        <h1>Hello!</h1>
-    `;
-}; // Example of a pure function that renders infomation requested from the backend
-
-
-const ImageOfTheDay = apod => {
-  console.log("ImageOfTheDay -> apod", apod); // If image does not already exist, or it is not from today -- request it again
-
-  const today = new Date();
-  const photodate = new Date(apod.date);
-  console.log(photodate.getDate(), today.getDate());
-  console.log(photodate.getDate() === today.getDate());
-
-  if (!apod || apod.date === today.getDate()) {
-    getImageOfTheDay(store);
-  }
-
-  if (apod) {
-    if (apod.media_type === "video") {
-      return `
-                <p>See today's featured video <a href="${apod.url}">here</a></p>
-                <p>${apod.title}</p>
-                <p>${apod.explanation}</p>
-            `;
-    } else {
-      return `
-                <img src="${apod.image ? apod.image.url : null}" height="350px" width="100%" />
-                <p>${apod.image.explanation}</p>
-            `;
-    }
-  } else return `
-    <h1>apod not ready</h1>
-  `; // check if the photo of the day is actually type video!
-
-}; // ------------------------------------------------------  API CALLS
-// Example API call
-
-
-const getImageOfTheDay = state => {
-  // eslint-disable-next-line no-unused-vars
-  let {
-    apod
-  } = state;
-  fetch(`http://localhost:3000/apod`).then(res => res.json()).then(apod => updateStore(store, {
-    apod
-  })); // return data
+const getRoverData = async roverName => {
+  const data = await fetch(`http://localhost:3000/rovers?name=${roverName}`);
+  const {
+    latest_photos
+  } = await data.json();
+  updateStore(store, {
+    activeRover: latest_photos
+  });
 };
+
+console.log("outside");
+console.log("outside2");
 },{"@babel/runtime-corejs2/core-js/object/assign":"../node_modules/@babel/runtime-corejs2/core-js/object/assign.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -677,7 +616,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53578" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

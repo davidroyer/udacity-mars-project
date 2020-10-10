@@ -1,4 +1,6 @@
+const { BASE_API } = require("../config/index.js");
 require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
@@ -8,24 +10,17 @@ const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(express.static("dist"));
 
-console.log("process.env.API_KEY", process.env.API_KEY);
+app.get("/rovers", async (req, res) => {
+  const { name } = req.query;
+  const data = await fetch(
+    `${BASE_API}/${name}/latest_photos?page=1&api_key=${process.env.API_KEY}`
+  );
+  const jsonData = await data.json();
 
-// your API calls
-
-// example API call
-app.get("/apod", async (req, res) => {
-  try {
-    let image = await fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}&date=2020-10-06`
-    ).then((res) => res.json());
-    res.send({ image });
-  } catch (err) {
-    console.log("error:", err);
-  }
+  // res.json(jsonData);
+  res.send(jsonData);
 });
 
-//api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

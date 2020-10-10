@@ -4,8 +4,9 @@
   "description": "course project",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently yarn:dev:*",
-    "dev:client": "parcel watch client/index.html",
+    "dev": "concurrently --kill-others yarn:dev:*",
+    "devtest": "concurrently --kill-others \"yarn dev:server\" \"yarn dev:client\"",
+    "dev:client": "parcel watch ./client/index.html",
     "dev:server": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
