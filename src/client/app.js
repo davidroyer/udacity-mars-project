@@ -1,5 +1,5 @@
 if (module.hot) module.hot.accept();
-
+// import "./assets/styles/app";
 const root = document.getElementById("root");
 
 let store = {
@@ -31,16 +31,21 @@ window.addEventListener("load", () => {
   // render(root, store);
 });
 
-const roverOptions = document.querySelectorAll(".rover");
+const roverOptions = document.querySelectorAll(".rover-option");
 
 roverOptions.forEach((rover) =>
   rover.addEventListener("click", function () {
+    const activeRover = document.querySelector(".rover-option.active");
+    if (activeRover) activeRover.classList.remove("active");
+
+    this.classList.add("active");
     getRoverData(this.id);
   })
 );
 
 const getRoverData = async (roverName) => {
-  const data = await fetch(`http://localhost:4040/rovers?name=${roverName}`);
+  console.log("getRoverData -> roverName", roverName);
+  const data = await fetch(`http://localhost:4000/rovers?name=${roverName}`);
   const { latest_photos } = await data.json();
   const { rover } = latest_photos[0];
   const photos = latest_photos.map((obj) => obj.img_src);

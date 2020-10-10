@@ -5,21 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/styles/resets.css">
-    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/app.css">
     <title>Document</title>
 </head>
 
 <body>
-    <main>
-        <h1>Mars Rover App</h1>
-        <div>
-            <div class="rover" id="curiosity">Curiosity</div>
-            <div class="rover" id="opportunity">Opportunity</div>
-            <div class="rover" id="spirit">Spirit</div>
+    <div class="app-wrapper">
+
+        <div class="relative py-3 sm:mx-auto">
+            <h2 class="text-white text-5xl mb-2">Choose A Rover</h2>
+            <div class="rover-options-wrapper flex justify-around">
+                <button class="rover-option" id="curiosity">Curiosity</button>
+                <button class="rover-option" id="opportunity">Opportunity</button>
+                <button class="rover-option" id="spirit">Spirit</button>
+            </div>
         </div>
+
         <div id="root"></div>
-    </main>
+    </div>
+
 </body>
 <script src="/app.js"></script>
 
