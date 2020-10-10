@@ -1,6 +1,4 @@
-if (module.hot) {
-  module.hot.accept();
-}
+if (module.hot) module.hot.accept();
 
 const root = document.getElementById("root");
 
@@ -41,7 +39,7 @@ roverOptions.forEach((rover) =>
 );
 
 const getRoverData = async (roverName) => {
-  const data = await fetch(`http://localhost:3000/rovers?name=${roverName}`);
+  const data = await fetch(`http://localhost:4040/rovers?name=${roverName}`);
   const { latest_photos } = await data.json();
   updateStore(store, { activeRover: latest_photos });
 };

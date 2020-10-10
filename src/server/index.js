@@ -1,10 +1,11 @@
-require("dotenv").config();
-const { BASE_API } = require("../../config/index.js");
-const express = require("express");
-const bodyParser = require("body-parser");
-const fetch = require("node-fetch");
+import bodyParser from "body-parser";
+import "dotenv/config";
+import express from "express";
+import fetch from "node-fetch";
+
 const app = express();
-const port = 3000;
+const BASE_API = "https://api.nasa.gov/mars-photos/api/v1/rovers";
+const port = 4040;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -26,7 +26,7 @@ We have supplied some of the foundational code for you. So follow these steps to
 
 3. In your repo, you will see a .env-example file with a place for your API key. Rename or copy the file to one called `.env` and enter in your key. Now that you have your key, just remember to add it as a parameter to every request you make to NASA.
 
-4. Run `yarn start` in your terminal and go to `http:localhost:3000` to check that your app is working. If you don't see an image on the page, check that your api key is set up correctly.
+4. Run `yarn start` in your terminal and go to `http:localhost:4040` to check that your app is working. If you don't see an image on the page, check that your api key is set up correctly.
 
 5. Remember to commit frequently, use branches, and leave good commit messages! You'll thank yourself later.
 

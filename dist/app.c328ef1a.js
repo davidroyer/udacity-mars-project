@@ -581,7 +581,7 @@ roverOptions.forEach(rover => rover.addEventListener("click", function () {
 }));
 
 const getRoverData = async roverName => {
-  const data = await fetch(`http://localhost:3000/rovers?name=${roverName}`);
+  const data = await fetch(`http://localhost:4040/rovers?name=${roverName}`);
   const {
     latest_photos
   } = await data.json();
@@ -589,6 +589,8 @@ const getRoverData = async roverName => {
     activeRover: latest_photos
   });
 };
+
+console.log("1");
 },{"@babel/runtime-corejs2/core-js/object/assign":"../../node_modules/@babel/runtime-corejs2/core-js/object/assign.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -617,7 +619,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53093" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57246" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
