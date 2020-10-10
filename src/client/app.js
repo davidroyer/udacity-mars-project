@@ -18,10 +18,11 @@ const render = (root, state) => {
 
 // eslint-disable-next-line no-unused-vars
 const App = (state) => {
-  let { activeRover } = state;
-  const { rover } = activeRover[0];
+  let { selectedRover } = state;
+  const { name, photos } = selectedRover;
   return `
-      <h2>${rover.name}</h2>
+      <h2>${name}</h2>
+      <img src="${photos[0]}" alt=""/>
     `;
 };
 
@@ -41,5 +42,7 @@ roverOptions.forEach((rover) =>
 const getRoverData = async (roverName) => {
   const data = await fetch(`http://localhost:4040/rovers?name=${roverName}`);
   const { latest_photos } = await data.json();
-  updateStore(store, { activeRover: latest_photos });
+  const { rover } = latest_photos[0];
+  const photos = latest_photos.map((obj) => obj.img_src);
+  updateStore(store, { selectedRover: { ...rover, photos } });
 };
