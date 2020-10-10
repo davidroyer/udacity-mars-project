@@ -2,6 +2,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 import express from "express";
 import fetch from "node-fetch";
+import open from "open";
 
 const app = express();
 const BASE_API = "https://api.nasa.gov/mars-photos/api/v1/rovers";
@@ -22,3 +23,5 @@ app.get("/rovers", async (req, res) => {
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+open(`http://localhost:${port}`);
