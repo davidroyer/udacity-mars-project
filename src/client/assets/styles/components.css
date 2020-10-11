@@ -5,3 +5,8 @@
 .rover-option.active {
   @apply bg-white text-gray-900 outline-none;
 }
+
+/* Images */
+.image-grid-item {
+  @apply max-w-md;
+}

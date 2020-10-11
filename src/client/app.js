@@ -1,5 +1,16 @@
 if (module.hot) module.hot.accept();
-// import "./assets/styles/app";
+
+const ImageGrid = (photosArray) => {
+  const photos = photosArray.map(
+    (photo) => `<img src="${photo}" class="image-grid-item"/>`
+  );
+  return `
+  <div class="image-grid">
+    ${photos}
+  </div>
+  `;
+};
+
 const root = document.getElementById("root");
 
 let store = {
@@ -22,7 +33,7 @@ const App = (state) => {
   const { name, photos } = selectedRover;
   return `
       <h2>${name}</h2>
-      <img src="${photos[0]}" alt=""/>
+      ${ImageGrid(photos)}
     `;
 };
 
