@@ -10,18 +10,26 @@
 </head>
 
 <body>
-    <div class="app-wrapper">
 
-        <div class="relative py-3 sm:mx-auto">
-            <h2 class="text-white text-5xl mb-2">Choose A Rover</h2>
-            <div class="rover-options-wrapper flex justify-around">
-                <button class="rover-option" id="curiosity">Curiosity</button>
-                <button class="rover-option" id="opportunity">Opportunity</button>
-                <button class="rover-option" id="spirit">Spirit</button>
+
+    <div class="app-wrapper">
+        <div class="app-layout">
+            <div class="app-sidebar">
+                <div class="relative py-3 sm:mx-auto">
+                    <h2 class="text-gray-900 text-4xl mb-6 font-medium">Choose A Rover</h2>
+                    <div class="rover-options-wrapper">
+                        <button class="rover-option" id="curiosity">Curiosity</button>
+                        <button class="rover-option" id="opportunity">Opportunity</button>
+                        <button class="rover-option" id="spirit">Spirit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="app-info"></div>
+            <div class="app-images">
+                <div id="root"></div>
             </div>
         </div>
 
-        <div id="root"></div>
     </div>
 
 </body>
