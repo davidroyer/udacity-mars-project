@@ -1,12 +1,12 @@
-.app-wrapper {
-  @apply min-h-screen bg-gray-900 p-8 flex flex-col items-center justify-center sm:py-12;
-}
+/* .app-wrapper {
+  @apply min-h-screen bg-gray-100 p-8 flex flex-col items-center justify-center sm:py-12;
+} */
 
-.app-layout {
+/* .app-layout {
   @apply grid grid-flow-col grid-rows-3 gap-12 h-screen max-w-full w-11/12;
-}
+} */
 
-.app-sidebar {
+/* .app-sidebar {
   @apply row-span-3 bg-gray-500 rounded-md flex flex-col items-center max-w-sm col-span-2;
 }
 
@@ -16,4 +16,4 @@
 
 .app-images {
   @apply row-span-2 bg-gray-400 rounded-lg col-span-8;
-}
+} */

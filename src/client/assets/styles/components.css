@@ -10,5 +10,5 @@
 
 /* Images */
 .image-grid-item {
-  @apply max-w-md;
+  /* @apply max-w-md; */
 }

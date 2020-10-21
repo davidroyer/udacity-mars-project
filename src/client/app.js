@@ -1,14 +1,17 @@
 if (module.hot) module.hot.accept();
 
-const ImageGrid = (photosArray) => {
-  const photos = photosArray.map(
-    (photo) => `<img src="${photo}" class="image-grid-item"/>`
-  );
-  return `
-  <div class="image-grid">
-    ${photos}
-  </div>
-  `;
+const ImagesGridHTML = (photosArray) => {
+  const imagesGrid = document.createElement("div");
+  imagesGrid.classList.add("image-grid", "grid", "grid-cols-3", "gap-4");
+
+  photosArray.forEach((photo) => {
+    let gridItemWrapper = document.createElement("div");
+    gridItemWrapper.classList.add("grid-item");
+    gridItemWrapper.innerHTML = `<img src="${photo}" class="image-grid-item"/>`;
+    imagesGrid.appendChild(gridItemWrapper);
+  });
+
+  return imagesGrid.outerHTML;
 };
 
 const root = document.getElementById("root");
@@ -33,7 +36,7 @@ const App = (state) => {
   const { name, photos } = selectedRover;
   return `
       <h2>${name}</h2>
-      ${ImageGrid(photos)}
+      ${ImagesGridHTML(photos)}
     `;
 };
 
@@ -56,7 +59,7 @@ roverOptions.forEach((rover) =>
 
 const getRoverData = async (roverName) => {
   console.log("getRoverData -> roverName", roverName);
-  const data = await fetch(`http://localhost:4000/rovers?name=${roverName}`);
+  const data = await fetch(`http://localhost:4040/rovers?name=${roverName}`);
   const { latest_photos } = await data.json();
   const { rover } = latest_photos[0];
   const photos = latest_photos.map((obj) => obj.img_src);

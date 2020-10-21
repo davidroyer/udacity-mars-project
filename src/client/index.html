@@ -12,7 +12,7 @@
 <body>
 
 
-    <div class="app-wrapper">
+    <div class="app">
         <div class="app-layout">
             <div class="app-sidebar">
                 <div class="relative py-3 sm:mx-auto">
@@ -22,6 +22,15 @@
                         <button class="rover-option" id="opportunity">Opportunity</button>
                         <button class="rover-option" id="spirit">Spirit</button>
                     </div>
+                    <label class="block max-w-sm mx-auto">
+                        <span class="text-gray-700">Select A Rover</span>
+                        <select class="form-select block w-full mt-1">
+                            <option selected disabled value="">Select</option>
+                            <option value="curiosity">Curiosity</option>
+                            <option value="opportunity">Opportunity</option>
+                            <option value="spirit">Spirit</option>
+                        </select>
+                      </label>
                 </div>
             </div>
             <div class="app-info"></div>
