@@ -17,4 +17,4 @@ const GridItemContent = (item) => {
   ${factRenderer(item)}
   `;
 };
-exports.GridItemContent = GridItemContent;
+export default GridItemContent;

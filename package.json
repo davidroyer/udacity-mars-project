@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "rundev": "concurrently yarn:dev:*",
+    "dev": "concurrently --kill-others 'npm run dev:client' 'npm run dev:server'",
     "testdev": "yarn dev:server && yarn dev:client",
     "dev:client": "parcel watch src/client/index.html",
     "dev:server": "nodemon server/index.js",

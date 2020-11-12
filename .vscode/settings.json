@@ -8,5 +8,6 @@
     "source.organizeImports": true,
     "source.fixAll.eslint": true
   },
-  "prettier.printWidth": 120
+  "prettier.printWidth": 120,
+  // "prettier.singleQuote": true
 }
