@@ -1,10 +1,16 @@
 // if (module.hot) module.hot.accept();
 
+import { fromJS, List, Map } from 'immutable';
 import ImageGridItem from './components/ImageGridItem';
 import tester from './components/tester';
+console.log('Map, List, fromJS', Map, List, fromJS);
 console.log('ImageGridItem', ImageGridItem);
 console.log('tester', tester);
+const map1 = Map({ a: 1, b: 2, c: 3 });
 
+const map1PropA = map1.get('a');
+console.log('map1PropA', map1PropA);
+console.log('map1', map1);
 const ImagesGridHTML = (photosArray) => {
   const imagesGrid = document.createElement('div');
   imagesGrid.classList.add(
@@ -28,8 +34,12 @@ const ImagesGridHTML = (photosArray) => {
 const root = document.getElementById('root');
 
 let store = {
-  rovers: ['Curiosity', 'Opportunity', 'Spirit']
+  rovers: ['Curiosity', 'Opportunity', 'Spirit'],
+  selectedRover: {}
 };
+
+let iStore = fromJS(store);
+console.log('iStore', iStore);
 
 const updateStore = (store, newState) => {
   store = Object.assign(store, newState);
