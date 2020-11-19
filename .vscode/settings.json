@@ -9,5 +9,8 @@
     "source.fixAll.eslint": true
   },
   "prettier.printWidth": 120,
+  "emmet.includeLanguages": {
+    "javascript": "html"
+  },
   // "prettier.singleQuote": true
 }

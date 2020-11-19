@@ -1,0 +1,44 @@
+<!-- @NOTE: Bootstrap -->
+<div class="tabs-wrapper">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- NOTE: Main Section of index.html -->
+<main class="container">
+    <h1>Mars Rover App</h1>
+
+    <div>
+        <div class="rover" id="curiosity">Curiosity</div>
+        <div class="rover" id="opportunity">Opportunity</div>
+        <div class="rover" id="spirit">Spirit</div>
+    </div>
+    <div id="root"></div>
+</main>
+
+
+<!-- NOTE: Using form select for rover selection -->
+
+<label class="block max-w-sm mx-auto">
+    <span class="text-gray-700">Select A Rover</span>
+    <select class="form-select block w-full mt-1">
+        <option selected disabled value="">Select</option>
+        <option value="curiosity">Curiosity</option>
+        <option value="opportunity">Opportunity</option>
+        <option value="spirit">Spirit</option>
+    </select>
+</label>

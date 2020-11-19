@@ -12,3 +12,7 @@
 .image-grid-item {
   /* @apply max-w-md; */
 }
+
+.rover-info-heading {
+  @apply font-semibold leading-6 text-2xl mb-3;
+}
