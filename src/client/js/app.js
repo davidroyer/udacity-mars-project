@@ -55,7 +55,7 @@ roverOptions.forEach((rover) =>
 );
 
 const getRoverData = async (roverName) => {
-  const data = await fetch(`http://localhost:4040/rovers?name=${roverName}`);
+  const data = await fetch(`http://localhost:4000/rovers?name=${roverName}`);
   const { latest_photos } = await data.json();
   const { rover } = latest_photos[0];
   const photos = latest_photos.map((obj) => obj.img_src);

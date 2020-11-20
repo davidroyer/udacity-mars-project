@@ -10,7 +10,7 @@ const fetch = require('node-fetch');
 
 const app = express();
 const BASE_API = 'https://api.nasa.gov/mars-photos/api/v1/rovers';
-const port = 4040;
+const port = 4000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

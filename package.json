@@ -7,11 +7,11 @@
     "rundev": "concurrently yarn:dev:*",
     "dev": "concurrently --kill-others 'npm run dev:client' 'npm run dev:server'",
     "testdev": "yarn dev:server && yarn dev:client",
-    "dev:client": "parcel watch src/client/index.html",
+    "dev:client": "parcel watch src/client/**.html",
     "dev:server": "nodemon server/index.js",
     "es6:server": "nodemon --exec babel-node src/server/index.js",
     "build:server": "npx babel src/server/index.js --out-file index.es5.js",
-    "clean": "kill -9 $(lsof -t -i:4000)"
+    "clean": "kill -9 $(lsof -t -i:4040)"
   },
   "author": "",
   "license": "ISC",

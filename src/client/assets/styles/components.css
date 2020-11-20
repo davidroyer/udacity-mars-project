@@ -16,3 +16,7 @@
 .rover-info-heading {
   @apply font-semibold leading-6 text-2xl mb-3;
 }
+
+.header-title {
+  font-family: 'Orbitron'
+}
