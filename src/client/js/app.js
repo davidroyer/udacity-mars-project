@@ -1,4 +1,5 @@
-if (module.hot) module.hot.accept();
+/* eslint-disable no-unused-vars */
+// if (module.hot) module.hot.accept();
 
 import { fromJS } from 'immutable';
 import ImagesGridHTML from './components/ImagesGrid';
@@ -42,28 +43,27 @@ window.addEventListener('load', () => {
   // render(root, store);
 });
 
-const roverOptions = document.querySelectorAll('.rover-option');
+const roverSelect = document.getElementById('rover-select');
 
-roverOptions.forEach((rover) =>
-  rover.addEventListener('click', function () {
-    const activeRover = document.querySelector('.rover-option.active');
-    if (activeRover) activeRover.classList.remove('active');
+roverSelect.addEventListener('change', async function (event) {
+  const selectedRover = event.target.value;
+  const roverData = await getRoverData(selectedRover);
 
-    this.classList.add('active');
-    getRoverData(this.id);
-  })
-);
+  updateState({
+    key: 'selectedRover',
+    value: fromJS(roverData)
+  });
 
+  console.log('getStateJS()', getStateJS());
+  // render(root, getStateJS());
+});
+
+// eslint-disable-next-line no-unused-vars
 const getRoverData = async (roverName) => {
   const data = await fetch(`http://localhost:4000/rovers?name=${roverName}`);
   const { latest_photos } = await data.json();
   const { rover } = latest_photos[0];
   const photos = latest_photos.map((obj) => obj.img_src);
 
-  updateState({
-    key: 'selectedRover',
-    value: fromJS({ ...rover, photos })
-  });
-
-  render(root, getStateJS());
+  return { ...rover, photos };
 };
