@@ -55,5 +55,8 @@
   },
   "browserslist": [
     "last 3 Chrome versions"
-  ]
+  ],
+  "engines": {
+    "node": "12.x"
+  }
 }
