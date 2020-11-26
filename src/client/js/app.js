@@ -6,7 +6,7 @@ import Header from './components/Header/Index';
 import Main from './components/Main/Index';
 import { getStateJS, updateState } from './store';
 
-const siteURL = process.env.NODE_ENV === 'production' ? 'https://mars-rovers-dashboard.herokuapp.com/' : 'http://localhost:4000';
+const siteURL = process.env.NODE_ENV === 'production' ? 'https://mars-rovers-dashboard.herokuapp.com' : 'http://localhost:4000';
 
 const root = document.getElementById('root');
 
