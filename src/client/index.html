@@ -5,40 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles/app.css">
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg-gray-400">
 
 
-    <div class="app">
-        <!-- <div class="app-layout"> -->
-            <div class="app-header">
-                <label class="block max-w-sm mx-auto">
-                    <span class="text-gray-700">Select A Rover</span>
-                    <select class="block w-full mt-1 form-select">
-                        <option selected disabled value="">Select</option>
-                        <option value="curiosity">Curiosity</option>
-                        <option value="opportunity">Opportunity</option>
-                        <option value="spirit">Spirit</option>
-                    </select>
-                </label>
-
-                <div class="relative py-3 sm:mx-auto">
-                    <h2 class="mb-6 text-4xl font-medium text-gray-900">Choose A Rover</h2>
-                    <div class="rover-options-wrapper">
-                        <button class="rover-option" id="curiosity">Curiosity</button>
-                        <button class="rover-option" id="opportunity">Opportunity</button>
-                        <button class="rover-option" id="spirit">Spirit</button>
-                    </div>
-                </div>
-            </div>
-            <div class="app-images">
-                <div id="root" class="container flex mx-auto"></div>
-            </div>
-        <!-- </div> -->
-    </div>
+    <div id="root"></div>
 
 </body>
 <script src="/js/app.js"></script>

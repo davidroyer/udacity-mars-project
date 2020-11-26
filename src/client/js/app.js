@@ -2,7 +2,8 @@
 // if (module.hot) module.hot.accept();
 
 import { fromJS } from 'immutable';
-import ImagesGridHTML from './components/ImagesGrid';
+import Header from './components/Header/Index';
+import Main from './components/Main/Index';
 import { getStateJS, updateState } from './store';
 
 const root = document.getElementById('root');
@@ -13,40 +14,30 @@ const render = (root, state) => {
   console.log('render -> CHECKING STORE STATE', state);
 };
 
-const Sidebar = (rover) => {
-  const { name, landing_date, launch_date, status } = rover;
-  return `
-    <div class="rover-info w-1/4 mr-8 p-4 rounded bg-gray-700 text-white">
-      <h2 class="rover-info-heading">Rover Information</h2>
-      <ul>
-        <li><strong>Name: </strong>${name}</li>
-        <li><strong>Status: </strong>${status}</li>
-        <li><strong>Launch Date: </strong>${launch_date}</li>
-        <li><strong>Landing Date: </strong>${landing_date}</li>
-      </ul>
-    </div>
-  `;
-};
-
 const App = (state) => {
-  const { selectedRover } = state;
+  const { selectedRover, rovers } = state;
   const { photos } = selectedRover;
 
   return `
-    ${Sidebar(selectedRover)}
-    ${ImagesGridHTML(photos)}
+  ${Header(state)}
+  ${Main(selectedRover)}
   `;
 };
 
 // NOTE: Will need this if start rendering the menu via JavaScript
 window.addEventListener('load', () => {
-  // render(root, store);
+  render(root, getStateJS());
 });
 
-const roverSelect = document.getElementById('rover-select');
+root.addEventListener('change', async function (event) {
+  if (event.target.id !== 'rover-select') return;
+  console.log('VALUE', event.target.value);
 
-roverSelect.addEventListener('change', async function (event) {
+  const roverSelect = document.getElementById('rover-select');
+  console.log('🚀 ~ file: app.js ~ line 43 ~ event.target.', event.target);
+
   const selectedRover = event.target.value;
+  console.log('🚀 ~ file: app.js ~ line 39 ~ roverSelect', roverSelect);
   const roverData = await getRoverData(selectedRover);
 
   updateState({
@@ -55,7 +46,7 @@ roverSelect.addEventListener('change', async function (event) {
   });
 
   console.log('getStateJS()', getStateJS());
-  // render(root, getStateJS());
+  render(root, getStateJS());
 });
 
 // eslint-disable-next-line no-unused-vars
