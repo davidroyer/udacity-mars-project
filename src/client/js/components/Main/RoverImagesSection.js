@@ -2,7 +2,7 @@ const RoverImagesSection = (photos) => {
   const ImageList = photos
     .map((photo) => {
       return `
-      <div class="bg-gray-300 rover-image h-32 shadow-xl rounded-md sm:h-48">
+      <div class="bg-gray-300 rover-image h-32 shadow-sm rounded-md sm:h-48">
         <img src="${photo}" class="w-full h-full object-cover rounded-md" alt="Rover Image">
       </div>
     `;
