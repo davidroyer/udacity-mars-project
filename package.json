@@ -11,7 +11,7 @@
     "dev:server": "nodemon server/index.js",
     "es6:server": "nodemon --exec babel-node src/server/index.js",
     "build:server": "npx babel src/server/index.js --out-file index.es5.js",
-    "clean": "kill -9 $(lsof -t -i:4040)",
+    "clean": "kill -9 $(lsof -t -i:3000)",
     "build": "parcel build src/client/index.html",
     "start": "node server/index.js"
   },

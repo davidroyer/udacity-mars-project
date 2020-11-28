@@ -14,5 +14,5 @@ export const getStateJS = () => {
 };
 
 export const updateState = ({ key, value }) => {
-  state = state.set(key, value);
+  state = state.set(key, fromJS(value));
 };

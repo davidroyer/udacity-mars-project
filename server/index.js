@@ -1,8 +1,3 @@
-// import bodyParser from "body-parser";
-// import "dotenv/config";
-// import express from "express";
-// import fetch from "node-fetch";
-
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -10,7 +5,7 @@ const fetch = require('node-fetch');
 
 const app = express();
 const BASE_API = 'https://api.nasa.gov/mars-photos/api/v1/rovers';
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,5 +20,3 @@ app.get('/rovers', async (req, res) => {
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
-// open(`http://localhost:${port}`);
