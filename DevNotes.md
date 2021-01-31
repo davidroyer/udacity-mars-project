@@ -1,5 +1,11 @@
 # Notes
 
+## Parcel
+
+- Can you use this [amazing resource](https://createapp.dev/parcel)
+
+---
+
 ## Immutable.js
 
 - `Maps` are like JavaScript Objects
@@ -14,3 +20,9 @@
 ## Tailwind Config Changes With Parcel
 
 - Delete the `.cache` folder and all should be good.
+
+---
+
+## Heroku
+
+- Pings the app every 30 minutes so it never has a coldstart -> <https://kaffeine.herokuapp.com/>
