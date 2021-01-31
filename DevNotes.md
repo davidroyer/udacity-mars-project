@@ -26,3 +26,4 @@
 ## Heroku
 
 - Pings the app every 30 minutes so it never has a coldstart -> <https://kaffeine.herokuapp.com/>
+- If you add a credit card then you can an extra 450 hours per month.
